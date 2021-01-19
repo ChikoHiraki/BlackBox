@@ -6,6 +6,16 @@ package jp.ac.uryukyu.ie.e205735;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-class FieldTest {
+class GameMasterTest {
+    @Test
+    
+    void GameTest() {
+        
+        FieldHint fieldTest = new FieldHint(5);
+        for(int i=0;i<5;i++){
+            assertNotNull(fieldTest.getTopLasers()[i] != null);
+        }
+    }
+
     
 }

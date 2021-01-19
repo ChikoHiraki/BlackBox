@@ -14,19 +14,11 @@ public class GameMaster {
      * int BALL= 3;  //ボールの数
      * Field ban;
      * FieldAnswer banAns;
-     * String[] topLasers;  //レーザービームを発射した結果
-     * String[] leftLasers;
-     * String[] rightLasers;
-     * String[] underLasers;
      */
     private int MASU;
     private int BALL= 3;
     private Field ban;
-    private FieldAnswer banAns;
-    String[] topLasers = {"R","H","R","R","H"};
-    String[] leftLasers = {"H","6","H","H","5"};
-    String[] rightLasers = {"H","R","H","H","2"};
-    String[] underLasers = {"6","5","H","2","H"};
+    private FieldHint banAns;
 
     /**
      * コンストラクタ。マスの数を指定する。
@@ -36,7 +28,7 @@ public class GameMaster {
         this.MASU = masu;
         ban = new Field(this.MASU);
         ban.resetBoxStatus();
-        banAns = new FieldAnswer(this.MASU);
+        banAns = new FieldHint(this.MASU);
         banAns.ballInstallation();
     }
 
@@ -45,8 +37,9 @@ public class GameMaster {
      * 破線の外側に選択するための英数字を表示し、内側に各マスの状態とレーザーの結果を表示する。
      */
     public void fieldStatus(){
-        char c = 'a';
+        banAns.ballCheck();
         //1列目
+        char c = 'a';
         System.out.print("  |   ");
         for(int j = 0; j < this.MASU ; j++){
             System.out.print(c + " ");
@@ -58,25 +51,25 @@ public class GameMaster {
         //2列目
         System.out.print("  |   ");
         for (int j = 0; j < MASU ; j++){
-            System.out.print(topLasers[j]+" ");
+            System.out.print(banAns.getTopLasers()[j]+" ");
         }
         System.out.println();
 
         //3~7列目
         for (int tate = 0; tate < MASU ; tate++){
             System.out.print(tate+" | ");
-            System.out.print(leftLasers[tate]+" ");
+            System.out.print(banAns.getLeftLasers()[tate]+" ");
             for (int yoko = 0; yoko< MASU ; yoko++){
                 System.out.print(ban.getBoxStatus()[tate][yoko]+" ");
             }
-            System.out.print(rightLasers[tate]+" ");
+            System.out.print(banAns.getRightLasers()[tate]+" ");
             System.out.println();
         }
 
         //最後の列
         System.out.print("  |   ");
         for (int j = 0; j < MASU ; j++){
-            System.out.print(underLasers[j]+" ");
+            System.out.print(banAns.getUnderLasers()[j]+" ");
         }
         System.out.println();
         System.out.println();

@@ -7,8 +7,7 @@ import jp.ac.uryukyu.ie.e205735.*;
 public class Main{
     public static void main(String[] args) {
         GameMaster master = new GameMaster(5);
-        master.openAnswer();
-        //master.ballCheck();
+        //master.openAnswer();
         master.fieldStatus();
         master.repeatAnswer();
         
