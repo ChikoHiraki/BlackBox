@@ -155,7 +155,7 @@ public class GameMaster {
     }
 
     /**
-     * 正解するまで回答を繰り返すメソッド。
+     * 正解するまでゲームを繰り返すメソッド。
      */
     public void repeatAnswer(){
         int count =1;

@@ -1,12 +1,15 @@
 package jp.ac.uryukyu.ie.e205735;
 
+/**
+ * フィールドヒントクラス。
+ * レーザーを発射した結果を調べる。
+ */
 class FieldHint extends FieldAnswer{
     private String[] topLasers;
     private String[] leftLasers;
     private String[] rightLasers;
     private String[] underLasers;
     private int count = 1;
-    private int countOut = 1;
 
 
     FieldHint(int masu){

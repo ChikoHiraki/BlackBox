@@ -28,11 +28,15 @@ public class FieldAnswer {
         this.boxAnswer  = new String[MASU][MASU];
     }
 
+    /**
+     * ランダムに３つのマスをボールがある状態にするメソッド
+     * @param masu １辺のマスの数
+     */
     public void ballInstallation(){
         ArrayList<HavingTwoNumber> list1 = new ArrayList<HavingTwoNumber>();
         for(int i=0; i<MASU; i++){
             for(int j=0; j<MASU; j++){
-                list1.add(twoNumberInOneBag(i,j));
+                list1.add(twoNumberMakeOne(i,j));
                 this.boxAnswer[i][j] = "□";
             }
         }
@@ -42,7 +46,7 @@ public class FieldAnswer {
         }
     }
 
-    public HavingTwoNumber twoNumberInOneBag(int _num1, int _num2){
+    public HavingTwoNumber twoNumberMakeOne(int _num1, int _num2){
         var bag = new HavingTwoNumber();
         bag.tate = _num1;
         bag.yoko = _num2;

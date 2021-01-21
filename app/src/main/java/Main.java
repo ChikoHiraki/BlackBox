@@ -2,7 +2,6 @@ import jp.ac.uryukyu.ie.e205735.*;
 
 /**
 * Mainクラス
-*
 */
 public class Main{
     public static void main(String[] args) {
